@@ -15,9 +15,9 @@ const getAll = catchError(async(req, res) => {
 });
 
 const create = catchError(async(req, res) => {
-    const {cartId, quantity} = await Cart.create(req.body);
+    const {productId, quantity} = await Cart.create(req.body);
     const userId = req.user.id
-    const result = await Cart.create({cartId, quantity, userId})
+    const result = await Cart.create({productId, quantity, userId})
     return res.status(201).json(result);
 });
 
